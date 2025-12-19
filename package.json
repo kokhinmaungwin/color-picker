@@ -1,6 +1,6 @@
 {
   "name": "@kokhinmaungwin/color-picker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple random color picker utility for Node.js and browser environments.",
   "main": "dist/color-picker.min.js",
   "publishConfig": {
