@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Color Picker Demo</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  
 </head>
 <body>
 
 <h2>🎨 Simple Color Picker</h2>
 
-<div id="box"></div>
+<div id="box" aria-label="Color display box"></div>
 
 <div class="info">
-  <input id="colorValue" readonly>
-  <button id="copyBtn">Copy</button>
+  <input id="colorValue" readonly aria-label="Selected color value" />
+  <button id="copyBtn" aria-label="Copy color value">Copy</button>
 </div>
 
-<button id="pickBtn">Pick Random Color</button>
+<button id="pickBtn" aria-label="Pick a random color">Pick Random Color</button>
 
 <script src="https://cdn.jsdelivr.net/gh/kokhinmaungwin/color-picker/dist/color-picker.min.js"></script>
 <script>
@@ -24,14 +25,20 @@
   const input = document.getElementById("colorValue");
 
   document.getElementById("pickBtn").onclick = () => {
+  
     const color = simpleColorPicker.pickRandomColor({ format: "hex" });
-    box.style.background = color;
+    box.style.backgroundColor = color;
     input.value = color;
   };
 
   document.getElementById("copyBtn").onclick = () => {
-    navigator.clipboard.writeText(input.value);
-    alert("Copied: " + input.value);
+    if (input.value) {
+      navigator.clipboard.writeText(input.value).then(() => {
+        alert("Copied: " + input.value);
+      }).catch(() => {
+        alert("Failed to copy!");
+      });
+    }
   };
 </script>
 
