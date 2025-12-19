@@ -7,40 +7,42 @@
   
 </head>
 <body>
+  <h1>Color Picker Demo</h1>
+  <div id="color-box" style="width:100px; height:100px; border:1px solid #000;"></div>
 
-<h2>🎨 Simple Color Picker</h2>
+  <p>HEX: <span id="color-hex"></span></p>
+  <p>RGB: <span id="color-rgb"></span></p>
+  <p>HSL: <span id="color-hsl"></span></p>
 
-<div id="box" aria-label="Color display box"></div>
+  <button id="pick-btn">Pick Random Color</button>
 
-<div class="info">
-  <input id="colorValue" readonly aria-label="Selected color value" />
-  <button id="copyBtn" aria-label="Copy color value">Copy</button>
-</div>
+  <script src="https://cdn.jsdelivr.net/gh/kokhinmaungwin/color-picker@1.0.4/dist/color-picker.min.js"></script>
+  <script>
+    const colorBox = document.getElementById("color-box");
+    const btn = document.getElementById("pick-btn");
 
-<button id="pickBtn" aria-label="Pick a random color">Pick Random Color</button>
+    const hexSpan = document.getElementById("color-hex");
+    const rgbSpan = document.getElementById("color-rgb");
+    const hslSpan = document.getElementById("color-hsl");
 
-<script src="https://cdn.jsdelivr.net/gh/kokhinmaungwin/color-picker/dist/color-picker.min.js"></script>
-<script>
-  const box = document.getElementById("box");
-  const input = document.getElementById("colorValue");
+    btn.addEventListener("click", () => {
+      // pickRandomColor returns hex by default
+      const hexColor = window.simpleColorPicker.pickRandomColor({ format: "hex" });
 
-  document.getElementById("pickBtn").onclick = () => {
-  
-    const color = simpleColorPicker.pickRandomColor({ format: "hex" });
-    box.style.backgroundColor = color;
-    input.value = color;
-  };
+      // convert hex to rgb and hsl using the library functions
+      const rgbObj = window.simpleColorPicker.hexToRgb(hexColor);
+      const hslObj = window.simpleColorPicker.rgbToHsl(rgbObj.r, rgbObj.g, rgbObj.b);
 
-  document.getElementById("copyBtn").onclick = () => {
-    if (input.value) {
-      navigator.clipboard.writeText(input.value).then(() => {
-        alert("Copied: " + input.value);
-      }).catch(() => {
-        alert("Failed to copy!");
-      });
-    }
-  };
-</script>
+      // format strings
+      const rgbStr = `rgb(${rgbObj.r}, ${rgbObj.g}, ${rgbObj.b})`;
+      const hslStr = `hsl(${hslObj.h}, ${hslObj.s}%, ${hslObj.l}%)`;
 
+      // update UI
+      colorBox.style.backgroundColor = hexColor;
+      hexSpan.textContent = hexColor;
+      rgbSpan.textContent = rgbStr;
+      hslSpan.textContent = hslStr;
+    });
+  </script>
 </body>
 </html>
