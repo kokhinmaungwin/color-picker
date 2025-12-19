@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Color Picker Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>🎨 Simple Color Picker</h1>
+
+  <div class="picker">
+    <div id="color-box"></div>
+
+    <div class="formats">
+      <button data-format="hex" class="active">HEX</button>
+      <button data-format="rgb">RGB</button>
+      <button data-format="hsl">HSL</button>
+    </div>
+
+    <input id="color-value" readonly />
+    <button id="copy-btn">📋 Copy</button>
+
+    <button id="pick-btn">🎲 Pick Random Color</button>
+    <button id="palette-btn">🎨 Generate Palette</button>
+
+    <div id="palette"></div>
+  </div>
+
+  <!-- CDN -->
+  <script src="../dist/color-picker.min.js"></script>
+
+  <script>
+    const box = document.getElementById("color-box");
+    const input = document.getElementById("color-value");
+    const pickBtn = document.getElementById("pick-btn");
+    const copyBtn = document.getElementById("copy-btn");
+    const paletteBtn = document.getElementById("palette-btn");
+    const palette = document.getElementById("palette");
+
+    let format = "hex";
+
+    document.querySelectorAll(".formats button").forEach(btn => {
+      btn.onclick = () => {
+        document.querySelectorAll(".formats button").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        format = btn.dataset.format;
+      };
+    });
+
+    pickBtn.onclick = () => {
+      const color = simpleColorPicker.pickRandomColor({ format });
+      box.style.background = color;
+      input.value = color;
+    };
+
+    copyBtn.onclick = () => {
+      navigator.clipboard.writeText(input.value);
+      copyBtn.textContent = "✅ Copied!";
+      setTimeout(() => copyBtn.textContent = "📋 Copy", 1000);
+    };
+
+    paletteBtn.onclick = () => {
+      palette.innerHTML = "";
+      simpleColorPicker.generatePalette(5, { format }).forEach(c => {
+        const d = document.createElement("div");
+        d.style.background = c;
+        d.title = c;
+        d.onclick = () => navigator.clipboard.writeText(c);
+        palette.appendChild(d);
+      });
+    };
+  </script>
+
+</body>
+</html>

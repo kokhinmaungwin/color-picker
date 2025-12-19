@@ -1,0 +1,65 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.picker {
+  background: #fff;
+  padding: 20px;
+  width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  text-align: center;
+}
+
+#color-box {
+  height: 120px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.formats button {
+  margin: 4px;
+  padding: 6px 10px;
+  border: none;
+  background: #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.formats .active {
+  background: #333;
+  color: #fff;
+}
+
+input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#palette {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+#palette div {
+  flex: 1;
+  height: 40px;
+  border-radius: 6px;
+  cursor: pointer;
+}
