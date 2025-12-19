@@ -8,9 +8,7 @@
 
 <h2>Color Picker Demo</h2>
 
-<div id="box"
-     style="width:120px;height:120px;border:1px solid #000;">
-</div>
+<div id="color-box"></div>
 
 <br><br>
 
@@ -20,7 +18,7 @@
 <script>
   document.getElementById("btn").onclick = function () {
     const color = simpleColorPicker.pickRandomColor();
-    document.getElementById("box").style.backgroundColor = color;
+    document.getElementById("color-box").style.backgroundColor = color;
   };
 </script>
 
