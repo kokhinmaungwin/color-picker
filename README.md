@@ -23,6 +23,6 @@ console.log(colorPicker.getRandomColor());
 ```
 ## Licence 
 
-MIT
+MIT License © Khin Maung Win 
 
 ---
