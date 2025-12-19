@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Color Picker Demo</title>
+</head>
+<body>
+
+<h2>Color Picker Demo</h2>
+
+<div id="box"
+     style="width:120px;height:120px;border:1px solid #000;">
+</div>
+
+<br><br>
+
+<button id="btn">Pick Random Color</button>
+
+<script src="https://cdn.jsdelivr.net/gh/kokhinmaungwin/color-picker@v1.0.2/index.js"></script>
+<script>
+  document.getElementById("btn").onclick = function () {
+    const color = simpleColorPicker.pickRandomColor();
+    document.getElementById("box").style.backgroundColor = color;
+  };
+</script>
+
+</body>
+</html>
