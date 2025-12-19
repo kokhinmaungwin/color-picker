@@ -2,7 +2,7 @@
   "name": "@kokhinmaungwin/color-picker",
   "version": "1.0.2",
   "description": "A simple random color picker utility for Node.js and browser environments.",
-  "main": "index.js",
+  "main": "dist/color-picker.min.js",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
@@ -16,6 +16,20 @@
   "license": "MIT",
   "type": "commonjs",
   "scripts": {
+    "build": "terser src/index.js -o dist/color-picker.min.js -c -m",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kokhinmaungwin/color-picker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kokhinmaungwin/color-picker/issues"
+  },
+  "homepage": "https://github.com/kokhinmaungwin/color-picker#readme"
 }
