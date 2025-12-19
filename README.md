@@ -15,6 +15,8 @@ const colorPicker = require('@kokhinmaungwin/color-picker');
 
 console.log(colorPicker.pickRandomColor());  // random hex color by default
 ```
+---
+
 ## Usage in Browser (via CDN)
 ```html
 <script src="https://cdn.jsdelivr.net/gh/kokhinmaungwin/color-picker@v1.0.4/dist/color-picker.min.js"></script>
@@ -30,10 +32,10 @@ console.log(colorPicker.pickRandomColor());  // random hex color by default
 
 - pickRandomColor(options)
 
-Generate a random color string.
+- Generate a random color string.
 
-Options:
-
+- Options:
+```txt
 format (string): "hex" (default), "rgb", or "hsl"
 
 hue (number): optional, 0-360
@@ -41,14 +43,18 @@ hue (number): optional, 0-360
 saturation (number): optional, 0-100
 
 lightness (number): optional, 0-100
+```
+---
+
+## Example:
+
+```js
+simpleColorPicker.pickRandomColor({ format: "hsl", hue: 180, saturation: 50, lightness: 50 });
+```
 
 ---
 
-
-## Example:
-```jsimpleColorPicker.pickRandomColor({ format: "hsl", hue: 180, saturation: 50, lightness: 50 });
 ## Demo
-```
 You can try the demo by opening the `demo/index.html` file in your browser:
 
 ```bash
