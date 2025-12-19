@@ -35,15 +35,15 @@ console.log(colorPicker.pickRandomColor());  // random hex color by default
 - Generate a random color string.
 
 - Options:
-```txt
-format (string): "hex" (default), "rgb", or "hsl"
 
-hue (number): optional, 0-360
+`format` (string): "hex" (default), "rgb", or "hsl"
 
-saturation (number): optional, 0-100
+`hue` (number): optional, `0-360`
 
-lightness (number): optional, 0-100
-```
+`saturation` (number): optional, `0-100`
+
+`lightness` (number): optional, `0-100`
+
 ---
 
 ## Example:
