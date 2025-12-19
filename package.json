@@ -1,0 +1,16 @@
+{
+  "name": "@kokhinmaungwin/color-picker",
+  "version": "1.0.0",
+  "description": "A simple random color picker utility for Node.js and browser environments.",
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "keywords": ["color", "picker", "random", "nodejs"],
+  "author": "Khin Maung Win",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
